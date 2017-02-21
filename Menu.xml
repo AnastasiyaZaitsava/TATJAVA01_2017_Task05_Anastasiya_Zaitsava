@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Menu xmlns:tns="http://www.example.org/MenuSchema" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.example.org/MenuSchema MenuSchema.xsd ">
+  <Section SectionName = "Холодные закуски">
+    <food ID = "1">
+      <name>Ассорти рыбное</name>
+      <description>Слабосоленая форель, семга</description>
+      <portion>100/20/15</portion>
+    </food>
+    <food ID = "2">
+      <name>Куриный рулет</name>
+      <description>Куриный рулет собственного производства</description>
+      <portion>100/5</portion>
+    </food>
+    <food ID = "3">
+      <name>Лимон</name>
+      <portion>60</portion>
+    </food>
+  </Section>
+  
+  <Section SectionName = "Горячие закуски">
+    <food ID = "1">
+      <name>Лобио с шампиньонами</name>
+      <description>Фасоль с шампиньонами и грецким орехом</description>
+      <portion>150/5</portion>
+      <price>105</price> 
+    </food>
+    <food ID = "2">
+      <name>Жульен</name>
+      <description>1. С курицей</description>
+      <description>2. С грибами</description>
+      <portion>120/1</portion>
+      <price>145</price>
+      <price>155</price>
+    </food>
+  </Section>
+</Menu>

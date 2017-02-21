@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" 
+	targetNamespace="http://www.example.org/MenuSchema" 
+	xmlns:tns="http://www.example.org/MenuSchema">
+	<element name = "Menu">
+	<complexType>
+	<sequence>
+		<element name = "Section" maxOccurs = "unbounded">
+			<complexType mixed="true">
+			<sequence>
+				<element name = "food" maxOccurs = "unbounded">
+				<complexType>
+				<sequence>
+					<element name = "name" type = "string"/>
+					<element name = "description" type = "string" minOccurs = "0" maxOccurs = "unbounded"/>
+					<element name = "portion" type = "string"/>
+					<element name = "price" type = "int" minOccurs = "0" maxOccurs = "unbounded"/>
+				</sequence>
+				<attribute name = "ID" type = "string"/>
+				</complexType>
+				</element>
+			</sequence>
+			<attribute name = "SectionName" type = "string"/>
+			</complexType>
+		</element>
+	</sequence>
+	</complexType>
+	</element>
+</schema>
