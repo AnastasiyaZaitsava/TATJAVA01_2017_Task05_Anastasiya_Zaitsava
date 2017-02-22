@@ -66,7 +66,7 @@ public class DomMenuDAO {
 			return null;
 		else{
 			for(int i=0; i<nlist.getLength(); i++){
-				child.add((Element) nlist.item(0));
+				child.add((Element) nlist.item(i));
 			}
 			return child;
 		}
