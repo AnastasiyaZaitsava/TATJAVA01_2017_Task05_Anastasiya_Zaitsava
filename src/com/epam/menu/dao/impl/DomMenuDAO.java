@@ -1,4 +1,4 @@
-package com.epam.menu.dao;
+package com.epam.menu.dao.impl;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -11,18 +11,24 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NodeList; 
 import org.xml.sax.SAXException;
 
-import com.epam.menu.bean.Food; 
+import com.epam.menu.bean.Food;
+import com.epam.menu.dao.MenuDAO;
+import com.epam.menu.dao.exception.DAOException; 
 
 
-public class DomMenuDAO {
+public class DomMenuDAO implements MenuDAO{
 	
 	public DomMenuDAO(){}
 	
-	public List<Food> getMenu() throws SAXException, IOException{
+	public List<Food> getMenu() throws DAOException {
 
 
 		DOMParser parser = new DOMParser(); 
-		parser.parse("Menu.xml");
+		try {
+			parser.parse("Menu.xml");
+		} catch (SAXException | IOException e) {
+			throw new DAOException(e.getMessage());
+		}
 		Document document = parser.getDocument(); 
 		Element root = document.getDocumentElement(); 
 		List<Food> menu = new ArrayList<Food>();

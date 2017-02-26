@@ -1,26 +1,28 @@
 package com.epam.menu.service;
 
-import java.io.IOException;
+
+import java.util.ArrayList;
 import java.util.List;
-
-import javax.xml.stream.XMLStreamException;
-
-import org.xml.sax.SAXException;
-
 import com.epam.menu.bean.Food;
-import com.epam.menu.dao.DomMenuDAO;
-import com.epam.menu.dao.SaxMenuDAO;
-import com.epam.menu.dao.StaxMenuDAO;
+import com.epam.menu.dao.exception.DAOException;
+import com.epam.menu.dao.impl.DomMenuDAO;
+import com.epam.menu.service.exception.ServiceException;
 
 public class MenuService  {
 	
 	public MenuService(){}
 	
-	public List<Food> getMenu() throws SAXException, IOException, XMLStreamException{
+	public List<Food> getMenu() throws ServiceException {
 	//	SaxMenuDAO menuDAO = new SaxMenuDAO();
 	//	StaxMenuDAO menuDAO = new StaxMenuDAO();
 		DomMenuDAO menuDAO = new DomMenuDAO();
-		List<Food> menu = menuDAO.getMenu();
+		List<Food> menu = new ArrayList<Food>();
+		try {
+			menu = menuDAO.getMenu();
+		} catch (DAOException e) {
+			// TODO Auto-generated catch block
+			throw new ServiceException();
+		}
 	return menu;
 	}
 }
