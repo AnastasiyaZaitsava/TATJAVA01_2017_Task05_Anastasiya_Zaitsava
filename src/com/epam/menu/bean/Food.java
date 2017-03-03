@@ -68,5 +68,31 @@ public class Food {
 		public void setPortion(String portion) {
 			this.portion = portion;
 		}
+		
+		public boolean equals(Object obj){
+			if (this == obj) {
+				return true;
+			}
+			
+			if (null == obj) {
+				return false;
+			}
 
+			if (getClass() != obj.getClass()) {
+				return false;
+			}
+			
+			Food food = (Food) obj;
+			if (!name.equals(food.name)){
+				return false;
+			}
+			if(!description.containsAll(food.description) || !food.description.containsAll(description)){
+				return false;
+			}
+			return true;
+		}
+		public int hashCode(){
+			int hash = name.hashCode() + description.size()*5;
+			return hash;
+		}
 }
